@@ -1,0 +1,25 @@
+{{! esli u nas v massive chto-to est,to togda budem renderet }}
+{{#if todos.length}}
+  <ul>
+    <li class="todo">
+      <form action="/completed" method="POST">
+        <label>
+          {{#if completed}}
+            <input type="checkbox" checked name="completed" />
+            <span class="completed">{{title}}</span>
+          {{else}}
+            <input type="checkbox" name="completed" />
+            <span>{{title}}</span>
+          {{/if}}
+          {{! pomogaet oredeliat kakoi imenno todo mi izmeniam / opredelit ego id }}
+          <input type="hidden" value="{{id}}" />
+
+          <button class="btn btn-small" type="submit" name="id">Save</button>
+        </label>
+      </form>
+    </li>
+    {{#each todos}}{{/each}}
+  </ul>
+{{else}}
+  <p>No todos</p>
+{{/if}}
